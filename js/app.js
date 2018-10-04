@@ -1,10 +1,12 @@
+//Sets up the input of the x & y axis as well as the speed of the enemy. The image will also be assigned to the enemy.
 var Enemy = function(x, y, speed) {
   this.x = x;
   this.y = y;
   this.speed = speed;
   this.sprite = 'images/enemy-bug.png';
 };
-
+//Determines the rate of speed the enemy will pass across the board. Once the enemy fully passes through the board it will restart
+//on the x-axis of -101 in order to ensure a smooth transitioning.
 Enemy.prototype.update = function(dt) {
   if (this.x < 501) {
     this.x += this.speed * dt;
@@ -21,11 +23,11 @@ Enemy.prototype.update = function(dt) {
    }
 
 };
-
+//Renders the picture of the enemy and places it on the board.
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
-
+//Multiple enemies are created starting at the same x-axis but on different y-axis.
 const enemy = new Enemy(-101, 60, 600);
 const enemy1 = new Enemy(-101, 145, 350);
 const enemy2 = new Enemy(-101, 225, 550);
