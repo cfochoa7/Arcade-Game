@@ -5,6 +5,7 @@ var Enemy = function(x, y, speed) {
   this.speed = speed;
   this.sprite = 'images/enemy-bug.png';
 };
+
 //Determines the rate of speed the enemy will pass across the board. Once the enemy fully passes through the board it will restart
 //on the x-axis of -101 in order to ensure a smooth transitioning.
 Enemy.prototype.update = function(dt) {
@@ -23,11 +24,14 @@ Enemy.prototype.update = function(dt) {
    }
 
 };
-//Renders the picture of the enemy and places it on the board.
+
+//Renders the picture of the enemy from the engine.js and places it on the board.
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
-//Multiple enemies are created starting at the same x-axis but on different y-axis.
+
+//Multiple enemies are created starting at the same x-axis but on different y-axis. The 3rd parameter determines the rate of speed
+//the enemy will go. All the Enemies are then pushed into the empty array of allEnemies. 
 const enemy = new Enemy(-101, 60, 600);
 const enemy1 = new Enemy(-101, 145, 350);
 const enemy2 = new Enemy(-101, 225, 550);
@@ -37,17 +41,20 @@ allEnemies.push(enemy, enemy1, enemy2, enemy3);
 
 
 
-
+//Sets up the Hero figure at the default start of x-axis(202) & y-axis(400). The this.sprite loads the image from the engine.js
+//at the Resources.load().
 var Hero = function() {
   this.sprite = 'images/char-boy.png';
   this.x = 202;
   this.y = 400;
 };
 
+//Renders the picture of the Hero from the engine.js and places it on the board.
 Hero.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
+//The handleInput is similar to the addEventListner and will   
 Hero.prototype.handleInput = function(input) {
 
    if (input === 'left' && this.x > 0) {
