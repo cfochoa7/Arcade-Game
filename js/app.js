@@ -9,16 +9,14 @@ var Enemy = function(x, y, speed) {
 //Determines the rate of speed the enemy will pass across the board. Once the enemy fully passes through the board it will restart
 //on the x-axis of -101 in order to ensure a smooth transitioning.
 Enemy.prototype.update = function(dt) {
-  if (this.x < 501) {
-    this.x += this.speed * dt;
-  } else {
-    this.x = -101;
-  }
+this.x < 501 ? this.x += this.speed *dt : this.x = -101
 
-  if (player.x < this.x + 60 &&
-    player.x + 37 > this.x &&
-    player.y < this.y + 25 &&
-    30 + player.y > this.y) {
+var width = 50
+var length = 35
+  if (player.x < this.x + width)
+   if (player.x + length > this.x)
+    if (player.y < this.y + width)
+     if (length + player.y > this.y) {
        player.x = 202;
        player.y = 400;
    }
@@ -83,10 +81,12 @@ var Key = function(x, y) {
 Key.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 
-    if (player.x < this.x + 60 &&
-         player.x + 37 > this.x &&
-         player.y < this.y + 25 &&
-         30 + player.y > this.y) {
+var width = 50
+var length = 25
+if (player.x < this.x + width)
+ if (player.x + length > this.x)
+  if (player.y < this.y + width)
+   if (length + player.y > this.y) {
          this.x = -100;
          player.x = 202;
          player.y = 400;
