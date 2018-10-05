@@ -5,6 +5,13 @@ Students should use this [rubric](https://review.udacity.com/#!/projects/2696458
 
 For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
 
+## Instructions
+1. git clone this project to your text editor to play the game
+2. Use the keystokes on the keyboard to navigate the figure across the board 
+3. Avoid the enemy bugs to get across the board, reset will occur if there is an interaction
+4. Interact the figure with the key object at the top of the board to win the game
+
+
 ## Resources
 Special thanks to Matthew Cranford, and the Udacity community for providing guidance on this project.
 
