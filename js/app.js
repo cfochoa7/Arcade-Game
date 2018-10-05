@@ -78,7 +78,7 @@ Hero.prototype.handleInput = function(input) {
     }
 }
 
-/*The 'new Hero' is set up at the appropiate x & y axis */
+/*The 'new Hero' is set up in a constant*/
 const player = new Hero();
 
 /*----------------------------------------------------------Key Class---------------------------------------------------------------*/
@@ -114,7 +114,7 @@ if (player.x < this.x + width)
      }
 };
 
-/*The new Key is set up at the appropiate x & y axis */
+/*The new Key is set up at the appropiate x & y axis and assigned in a constant */
 const key = new Key(202, -10);
 
 /*----------------------------------------------------------Win------------------------------------------------------------------*/
@@ -133,7 +133,7 @@ var win = function () {
 win.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 }
-/* Puts the function() of the win in a new construction*/
+/* Puts the function() from the 'win' variable in a new construction*/
 const won = new win;
 /*--------------------------------------------------------------------------------------------------------------------------------*/
 
