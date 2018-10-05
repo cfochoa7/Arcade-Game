@@ -1,4 +1,5 @@
 /*----------------------------------------------------------Enemy Class------------------------------------------------------------*/
+/*Influenced from //https://matthewcranford.com/arcade-game-walkthrough-part-5-adding-enemies/*/
 
 /*Sets up the input of the x & y axis as well as the speed of the enemy. 
 The image will also be assigned to the enemy at the Resources.load() from the engine.js.*/
@@ -36,7 +37,7 @@ Enemy.prototype.render = function() {
 /*Multiple enemies are created using the 'new' method starting at the same x-axis but on different y-axis. 
  The 3rd parameter determines the rate of speed the enemy will go. All the Enemies are then pushed into the empty array of allEnemies.*/
 
-//https://matthewcranford.com/arcade-game-walkthrough-part-5-adding-enemies/
+//Influenced from https://matthewcranford.com/arcade-game-walkthrough-part-5-adding-enemies/
 const enemy = new Enemy(-101, 60, 600);
 const enemy1 = new Enemy(-101, 145, 350);
 const enemy2 = new Enemy(-101, 225, 550);
@@ -60,8 +61,8 @@ Hero.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-/*The handleInput is similar to the addEventListner and will move the Hero image across the board based on the user's input.
-The 'input === "" ' is influenced from the addEventListener on line 108.*/
+/*The handleInput is similar to the addEventListner and will move the Hero image across the board based on the user's input and 
+will also limit the Hero from overcrossing the board. The 'input === "" ' is influenced from the addEventListener on line 108.*/
 Hero.prototype.handleInput = function(input) {
 
    if (input === 'left' && this.x > 0) {
