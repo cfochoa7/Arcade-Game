@@ -8,6 +8,5 @@ For detailed instructions on how to get started, check out this [guide](https://
 ## Resources
 Special thanks to Matthew Cranford, and the Udacity community for providing guidance on this project.
 
-* Mathew Cranford
-Cranford, Matthew (2018) Arcade Game Walkthrough https://matthewcranford.com/arcade-game-walkthrough-part-1-starter-code-breakdown/
+* Cranford, Matthew (2018) Arcade Game Walkthrough https://matthewcranford.com/arcade-game-walkthrough-part-1-starter-code-breakdown/
 
