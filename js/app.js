@@ -1,6 +1,7 @@
 /*----------------------------------------------------------Enemy Class------------------------------------------------------------*/
 
-/*Sets up the input of the x & y axis as well as the speed of the enemy. The image will also be assigned to the enemy.*/
+/*Sets up the input of the x & y axis as well as the speed of the enemy. 
+The image will also be assigned to the enemy at the Resources.load() from the engine.js.*/
 var Enemy = function(x, y, speed) {
   this.x = x;
   this.y = y;
@@ -14,7 +15,7 @@ Enemy.prototype.update = function(dt) {
 this.x < 501 ? this.x += this.speed *dt : this.x = -101
 
 /*Sets up the collision between the Hero and the Enemies.
-Once the the collision is met the player will be reset back to it's default starting point. */
+Once the the collision is met the player will reset back to it's default starting point. */
 var width = 50
 var length = 35
   if (player.x < this.x + width)
@@ -33,7 +34,9 @@ Enemy.prototype.render = function() {
 };
 
 /*Multiple enemies are created using the 'new' method starting at the same x-axis but on different y-axis. 
- The 3rd parameter determines the rate of speed the enemy will go. All the Enemies are then pushed into the empty array of allEnemies.*/ 
+ The 3rd parameter determines the rate of speed the enemy will go. All the Enemies are then pushed into the empty array of allEnemies.*/
+
+//https://matthewcranford.com/arcade-game-walkthrough-part-5-adding-enemies/
 const enemy = new Enemy(-101, 60, 600);
 const enemy1 = new Enemy(-101, 145, 350);
 const enemy2 = new Enemy(-101, 225, 550);
@@ -44,7 +47,7 @@ allEnemies.push(enemy, enemy1, enemy2, enemy3);
 
 /*----------------------------------------------------------Hero Class-------------------------------------------------------------*/
 
-/*Sets up the Hero figure at the default start of x-axis(202) & y-axis(400). The this.sprite loads the image from the engine.js
+/*Sets up the Hero figure at the default start of x-axis(202) & y-axis(400). The this.sprite loads the image at the engine.js
 at the Resources.load().*/
 var Hero = function() {
   this.sprite = 'images/char-boy.png';
@@ -58,7 +61,7 @@ Hero.prototype.render = function() {
 };
 
 /*The handleInput is similar to the addEventListner and will move the Hero image across the board based on the user's input.
-The 'input === "" ' is taken from the addEventListener on line 108.*/
+The 'input === "" ' is influenced from the addEventListener on line 108.*/
 Hero.prototype.handleInput = function(input) {
 
    if (input === 'left' && this.x > 0) {
@@ -75,12 +78,12 @@ Hero.prototype.handleInput = function(input) {
     }
 }
 
-/*The new Hero is set up at the appropiate x & y axis */
+/*The 'new Hero' is set up at the appropiate x & y axis */
 const player = new Hero();
 
 /*----------------------------------------------------------Key Class---------------------------------------------------------------*/
 
-/*Sets up the input of the x & y axis. The image will also be assigned as the Key.*/
+/*Sets up the input of the x & y axis. The image will also be assigned as the Key at the Resources.load() from the engine.js.*/
 var Key = function(x, y) {
   this.sprite = 'images/Key.png';
   this.x = x;
@@ -91,8 +94,8 @@ var Key = function(x, y) {
 Key.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
   
-/*Sets up the collision between the Hero and the Key.
-Once the the collision is met the player will be pushed off the board from it's x & y axis.The same will apply to the Key's x-axis. */
+/*Sets up the collision between the Hero and the Key. Once the the collision is met
+the key is pushed off the board at the x-axis off -100. */
 var width = 50
 var length = 25
 if (player.x < this.x + width)
@@ -100,11 +103,9 @@ if (player.x < this.x + width)
   if (player.y < this.y + width)
    if (length + player.y > this.y) {
          this.x = -100;
-         player.x = 202;
-         player.y = 400;
      }
 
-  /*When the Key's x-axis is moved off to -100 then the player will also move off the board to -200.
+  /*When the Key's x-axis is moved off to -100 then the player will also moved off the board to the x-axis of -200.
   Additionally the Win image will show up to the center of the board congratulating the user for winning*/
     if(this.x === -100) {
       player.y = -200
@@ -120,7 +121,8 @@ const key = new Key(202, -10);
 
 //Credit for image goes to
 //www.dreamstime.com/stock-illustration-you-win-design-element-cmyk-vector-contains-transparent-objects-image50698499
-/*Sets up the Win image along with the the x & y axis*/
+
+/*Sets up the Win image at the Resources.load() from the engine.js, along with the the x & y axis*/
 var win = function () {
   this.sprite = 'images/you-win.png';
   this.x;
@@ -135,6 +137,7 @@ win.prototype.render = function() {
 const won = new win;
 /*--------------------------------------------------------------------------------------------------------------------------------*/
 
+/*The addEventListener is assigned the 'keyup' strokes from the arrow key on the keyboard*/
 document.addEventListener('keyup', function(e) {
     var allowedKeys = {
         37: 'left',
